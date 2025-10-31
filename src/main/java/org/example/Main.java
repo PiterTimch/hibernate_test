@@ -17,8 +17,6 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e);
         }
-
-        // jdbc:postgresql://ep-wild-star-agpl8b2v-pooler.c-2.eu-central-1.aws.neon.tech/neondb?user=neondb_owner&password=npg_5NBwSrDKjdF1
     }
 
     public void BaseInsert () {
