@@ -1,28 +1,26 @@
 package org.example;
 
 import org.example.entities.CategoryEntity;
+import org.example.services.CategoryService;
 import org.example.utils.HibernateHelper;
 
 import javax.smartcardio.Card;
 
 public class Main {
     public static void main(String[] args) {
-        //BaseInsert();
+        CategoryService cs = new CategoryService();
 
-        var session = HibernateHelper.getSession();
+        cs.CreateCategory(new CategoryEntity("Фрукти"));
 
-        try {
-            var res = session.createSelectionQuery("from CategoryEntity", CategoryEntity.class).getResultList();
-            res.forEach(System.out::println);
-        } catch (Exception e) {
-            System.out.println(e);
+        CategoryEntity toUpdate = cs.getCategoryList().stream()
+                .filter(c -> c.getName().equals("Фрукти"))
+                .findFirst()
+                .orElse(null);
+
+        if (toUpdate != null) {
+            toUpdate.setName("Нова назва");
+            cs.UpdateCategory(toUpdate);
         }
-    }
 
-    public void BaseInsert () {
-        var sessionFactory = HibernateHelper.getSessionFactory();
-        sessionFactory.inTransaction(session -> {
-            session.persist(new CategoryEntity("Savage"));
-        });
     }
 }

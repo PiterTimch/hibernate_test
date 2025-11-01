@@ -17,6 +17,8 @@ public class CategoryEntity {
     @Column(name = "date_created", nullable = false)
     private LocalDateTime dateCreated;
 
+    public CategoryEntity() {}
+
     public CategoryEntity(String name) {
         setName(name);
         setDateCreate(LocalDateTime.now());
