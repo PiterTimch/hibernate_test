@@ -21,7 +21,7 @@ public class CategoryEntity {
 
     public CategoryEntity(String name) {
         setName(name);
-        setDateCreate(LocalDateTime.now());
+        setDateCreated(LocalDateTime.now());
     }
 
     public int getId() {
@@ -32,7 +32,7 @@ public class CategoryEntity {
         return name;
     }
 
-    public LocalDateTime getDateCreate() {
+    public LocalDateTime getDateCreated() {
         return dateCreated;
     }
 
@@ -44,7 +44,7 @@ public class CategoryEntity {
         this.name = name;
     }
 
-    public void setDateCreate(LocalDateTime date) {
+    public void setDateCreated(LocalDateTime date) {
         this.dateCreated = date;
     }
 
